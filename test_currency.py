@@ -6,10 +6,8 @@ class testCurrency(unittest.TestCase):
   
   def testMultiplication(self):
     five = Dollar(5)
-    product = five.times(2)
-    self.assertEquals(10, product.amount)
-    product = five.times(3)
-    self.assertEquals(15, product.amount)
+    self.assertEquals(Dollar(10), five.times(2))
+    self.assertEquals(Dollar(15), five.times(3))
 
   def testEquality(self):
     self.assertTrue(Dollar(5).equals(Dollar(5)))
