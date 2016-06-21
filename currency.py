@@ -6,8 +6,8 @@ class Money(object):
   def __eq__(self, other):
     return isinstance(other, Money) and self._amount == other._amount
 
-  def equals(self, Money):
-    return Money._amount == self._amount
+  def equals(self, Money, v=False):
+    return Money._amount == self._amount and Money.__class__ == self.__class__
 
   def times(self, multiplier):
     return Money(self._amount * multiplier)
@@ -24,3 +24,8 @@ class Franc(Money):
   def __init__(self, amount):
     self._amount = amount
 
+if __name__ == "__main__":
+  m = Money(10)
+  print m.__class__
+  d = Dollar(5)
+  print d.__class__
