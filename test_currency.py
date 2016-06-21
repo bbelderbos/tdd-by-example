@@ -1,4 +1,4 @@
-from currency import Dollar
+from currency import Dollar, Franc
 
 import unittest
 
@@ -12,6 +12,11 @@ class testCurrency(unittest.TestCase):
   def testEquality(self):
     self.assertTrue(Dollar(5).equals(Dollar(5)))
     self.assertFalse(Dollar(5).equals(Dollar(6)))
+
+  def testFrancMultiplication(self):
+    five = Franc(5)
+    self.assertEquals(Franc(10), five.times(2))
+    self.assertEquals(Franc(15), five.times(3))
 
 if __name__ == "__main__":
   unittest.main()
