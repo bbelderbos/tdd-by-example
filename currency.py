@@ -12,6 +12,14 @@ class Money(object):
   def times(self, multiplier):
     return Money(self._amount * multiplier)
 
+  @classmethod
+  def dollar(self, amount):
+    return Dollar(amount)
+
+  @classmethod
+  def franc(self, amount):
+    return Franc(amount)
+
 
 class Dollar(Money):
   
