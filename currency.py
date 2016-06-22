@@ -10,10 +10,10 @@ class Money(object):
     return isinstance(other, Money) and self._amount == other._amount
 
   def equals(self, Money, v=False):
-    return Money._amount == self._amount and Money.__class__ == self.__class__
+    return Money._amount == self._amount and self.currency() == Money.currency()
 
   def times(self, multiplier):
-    return Money(self._amount * multiplier, None)
+    return Money(self._amount * multiplier, self._currency)
 
   @classmethod
   def dollar(self, amount):
@@ -26,6 +26,10 @@ class Money(object):
   def currency(self):
     return self._currency
 
+  def __repr__(self):
+    return self._amount + " " + self._currency;
+
+
 
 class Dollar(Money):
   
@@ -37,6 +41,7 @@ class Franc(Money):
   
   def __init__(self, amount, currency):
     super(Franc, self).__init__(amount, currency)
+
 
 
 if __name__ == "__main__":
